@@ -12,14 +12,12 @@ insert into users (name, score) values ('Shura', 7.7);
 insert into users (name, score) values ('nico', null);
 insert into users (name, score) values ('peter', 9.9);
 
--- update users set score = score * 1.2 where id % 2 = 0;
---
--- select * from users;
+-- select length('hello'); -- 5
+-- select substr('hello', 2); -- ello
+-- select substr('hello', 2, 3); -- ell 2文字目以降の3文字
+-- select lower('Hello'); -- hello
+-- select upper('Hello'); -- HELLO
+-- select concat('hello', 'world'); -- helloworld
 
--- select round(5.355); -- 5
--- select round(5.355, 1); -- 5.4
--- select floor(5.833); -- 5
--- select ceil(5.238); -- 6
--- select rand();
-
-select * from users order by rand() limit 1;
+-- select length(name), name from users order by length(name);
+select length(name) as len, name from users order by len;
