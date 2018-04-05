@@ -12,8 +12,8 @@ insert into users (name, score) values ('Shura', 7.7);
 insert into users (name, score) values ('nico', null);
 insert into users (name, score) values ('peter', 9.9);
 
--- select * from users where name like 'h%';
--- select * from users where name like '%h%';
--- select * from users where name like binary 'S%';
-select * from users where name like binary '____';
-select * from users where name like binary '_i%';
+-- select * from users order by score;
+-- select * from users where score is not null order by score desc;
+-- select * from users limit 3;
+-- select * from users limit 3 offset 3;
+select * from users order by score desc limit 3;
