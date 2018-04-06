@@ -12,9 +12,10 @@ insert into users (name, score) values ('Shura', 7.7);
 insert into users (name, score) values ('nico', null);
 insert into users (name, score) values ('peter', 4.0);
 
-drop view if exists top3;
-create view top3 as select * from users order by score desc limit 3;
--- select * from top3;
+start transaction;
+update users set score = score - 1.2 where name = 'haku';
+update users set score = score + 1.2 where name = 'yamato';
+-- commit;
+rollback;
 
--- show tables;
-show create view top3;
+select * from users;
