@@ -16,10 +16,15 @@ insert into posts (title, body) values ('title 1', 'body 1');
 insert into posts (title, body) values ('title 2', 'body 2');
 insert into posts (title, body) values ('title 3', 'body 3');
 
-insert into comments (post_id, body) values (1,'first comment for post 1');
-insert into comments (post_id, body) values (1,'second comment for post 1');
-insert into comments (post_id, body) values (3,'first comment for post 3');
-insert into comments (post_id, body) values (4,'first comment for post 4');
+insert into comments (post_id, body) values (1, 'first comment for post 1');
+insert into comments (post_id, body) values (1, 'second comment for post 1');
+insert into comments (post_id, body) values (3, 'first comment for post 3');
+insert into comments (post_id, body) values (4, 'first comment for post 4');
 
-select * from posts;
-select * from comments;
+-- select * from posts innner join comments on posts.id =comments.post_id;
+-- select * from posts join comments on posts.id =comments.post_id;
+select posts.id, posts.title, posts.body, comments.body from posts join comments on posts.id =comments.post_id;
+
+
+-- inner join
+-- outer join
