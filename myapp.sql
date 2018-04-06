@@ -12,31 +12,9 @@ insert into users (name, score) values ('Shura', 7.7);
 insert into users (name, score) values ('nico', null);
 insert into users (name, score) values ('peter', 4.0);
 
-drop table if exists users_with_team;
-create table users_with_team as
-select
-  id,
-  name,
-  score,
-  case
-  when score > 8.0 then 'Team-A'
-  when score > 6.0 then 'Team-B'
-  else 'Team-C'
-  end as team
-from users;
+drop view if exists top3;
+create view top3 as select * from users order by score desc limit 3;
+-- select * from top3;
 
-select
- sum(t.score),
- t.team
-from
-(select
-  id,
-  name,
-  score,
-  case
-  when score > 8.0 then 'Team-A'
-  when score > 6.0 then 'Team-B'
-  else 'Team-C'
-  end as team
-from users) as t
-group by team;
+-- show tables;
+show create view top3;
