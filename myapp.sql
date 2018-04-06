@@ -12,10 +12,10 @@ insert into users (name, score) values ('Shura', 7.7);
 insert into users (name, score) values ('nico', null);
 insert into users (name, score) values ('peter', 4.0);
 
-start transaction;
-update users set score = score - 1.2 where name = 'haku';
-update users set score = score + 1.2 where name = 'yamato';
--- commit;
-rollback;
+alter table users add index index_score (score);
+-- show index from users;
+-- explain select * from users where score > 5.0;
+-- explain select * from users where name = 'haku';
 
-select * from users;
+alter table users drop index index_score;
+-- show index from users;
